@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import 'normalize.css';
+@import 'base.css';
+@import 'components/header.css';
+@import 'components/hero.css';
+@import 'components/about.css';
+@import 'components/info-security.css';
+@import 'components/info-blocks.css';
+@import 'components/empresa-info.css';
+@import 'components/questions.css';
+@import 'components/contacto.css';
+@import 'components/footer.css';
+@import 'responsive.css';
+
+/* Variables globales y ajustes generales */
+:root {
+    /* Tema oscuro (predeterminado) */
+    --color-primary: #111518;
+    --color-primary-light: #1c1a18;
+    
+    --color-accent: #c63a1b;
+    --color-accent-hover: #e34c22;
+    --color-accent-secondary: #a83511;
+    
+    --gradient-fire: linear-gradient(45deg, #8B0000, #B84E06, #B7950B);
+    --gradient-warm: linear-gradient(to right, #741d16, #9a3412, #a16207);
+    
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #e0d6c9;
+    --color-text-muted: #b0a99b;
+    
+    --color-bg-card: rgba(30, 32, 36, 0.7);
+    --color-bg-card-hover: rgba(45, 35, 30, 0.8);
+    --color-border: rgba(198, 58, 27, 0.1);
+    --color-border-hover: rgba(198, 58, 27, 0.15);
+    
+    /* Variables para animaciones/transiciones */
+    --container-max-width: 1200px;
+    --header-height: 64px;
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+    
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.15);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+    
+    --shadow-warm-sm: 0 2px 6px rgba(155, 65, 0, 0.15);
+    --shadow-warm-md: 0 4px 12px rgba(155, 65, 0, 0.2);
+    --shadow-warm-lg: 0 8px 24px rgba(155, 65, 0, 0.25);
+}
+
+/* Tema claro - se activa con la clase .light-theme en el body */
+.light-theme {
+    --color-primary: #ffffff;
+    --color-primary-light: #fafafa;
+    
+    --color-accent: #d24a29;
+    --color-accent-hover: #e95a38;
+    --color-accent-secondary: #b43d21;
+    
+    --gradient-fire: linear-gradient(45deg, #d32f2f, #ef6c00, #ffa000);
+    --gradient-warm: linear-gradient(to right, #c62828, #ef6c00, #f57f17);
+    
+    --color-text-primary: #2d2520;
+    --color-text-secondary: #4e443c;
+    --color-text-muted: #6c635b;
+    
+    --color-bg-card: rgba(255, 252, 248, 0.8);
+    --color-bg-card-hover: rgba(255, 245, 235, 0.9);
+    --color-border: rgba(198, 58, 27, 0.15);
+    --color-border-hover: rgba(198, 58, 27, 0.25);
+    
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+    
+    --shadow-warm-sm: 0 2px 6px rgba(155, 65, 0, 0.05);
+    --shadow-warm-md: 0 4px 12px rgba(155, 65, 0, 0.08);
+    --shadow-warm-lg: 0 8px 24px rgba(155, 65, 0, 0.1);
+}
+
+/* Transición suave para cambios de tema */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-theme {
+    background-color: #ffffff;
+    color: #2d1e16;
+}
+
+/* Ajustes adicionales para modo claro */
+.light-theme .header {
+    background-color: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid rgba(201, 95, 32, 0.1);
+}
+
+.light-theme .header--scrolled {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(201, 95, 32, 0.08);
+}
+
+.light-theme .site-title,
+.light-theme .nav-item {
+    color: #2d1e16;
+}
+
+.light-theme .logo svg {
+    fill: #2d1e16;
+}
+
+.light-theme .btn-signin,
+.light-theme .btn-search,
+.light-theme .btn-theme {
+    background-color: rgba(186, 72, 32, 0.9);
+    color: #fff;
+}
+
+.light-theme .theme-icon {
+    fill: #fff;
+}
+
+/* Estilos para secciones en modo claro */
+.light-theme .about {
+    background: #ffffff;
+    border-top: 1px solid rgba(201, 95, 32, 0.05);
+    border-bottom: 1px solid rgba(201, 95, 32, 0.05);
+}
+
+.light-theme .product-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(186, 72, 32, 0.1);
+}
+
+.light-theme .about-text-title {
+    color: #2d1e16;
+}
+
+.light-theme .about-text-desc {
+    color: #5a4030;
+}
+
+.light-theme .info-block {
+    background-color: rgba(245, 240, 232, 0.9);
+    border: 1px solid rgba(186, 72, 32, 0.1);
+}
+
+.light-theme .info-block-title {
+    color: #2d1e16;
+}
+
+.light-theme .info-block-text {
+    color: #5a4030;
+}
+
+.light-theme .info-logo {
+    fill: #2d1e16;
+}
+
+.light-theme .floating-logo {
+    filter: drop-shadow(0 4px 8px rgba(186, 72, 32, 0.3));
+}
+
+/* ---- HERO SECTION ---- */
+.light-theme .hero {
+    background: #ffffff;
+    border-bottom: 1px solid rgba(201, 95, 32, 0.05);
+}
+
+.light-theme .hero::before {
+    background-image: radial-gradient(circle, rgba(201, 95, 32, 0.02) 1px, transparent 1px);
+    opacity: 0.3;
+}
+
+.light-theme .hero-content {
+    /* Overlay más oscuro para mejorar legibilidad del texto */
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.4) 0%, 
+        rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("../../images/hero-aux-1.jpeg");
+    /* Asegurar que el tamaño y posición sean idénticos en ambos modos */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 10px 25px rgba(201, 95, 32, 0.15);
+}
+
+.light-theme .hero-content:hover {
+    box-shadow: 0 15px 30px rgba(201, 95, 32, 0.25);
+}
+
+.light-theme .hero-content::after {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+/* Mantener el texto en blanco para mejor legibilidad */
+.light-theme .hero-title {
+    color: #fff;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.light-theme .hero-subtitle {
+    color: #ccc;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.light-theme .btn-hero-shop {
+    background-color: var(--color-accent);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(201, 95, 32, 0.2);
+}
+
+.light-theme .btn-hero-shop:hover {
+    background-color: var(--color-accent-hover);
+    box-shadow: 0 6px 15px rgba(201, 95, 32, 0.3);
+}
+
+/* ---- INFO BLOCKS SECTION ---- */
+.light-theme .info-blocks {
+    background-color: #ffffff;
+}
+
+.light-theme .info-block {
+    background-color: rgba(245, 240, 232, 0.8);
+    border: 1px solid rgba(201, 95, 32, 0.1);
+    box-shadow: 0 4px 12px rgba(201, 95, 32, 0.1);
+}
+
+.light-theme .info-block:hover {
+    background-color: rgba(245, 240, 232, 0.9);
+    box-shadow: 0 8px 20px rgba(201, 95, 32, 0.15);
+}
+
+body.light-theme .slide-title,
+body.light-theme .slide-title-1 {
+    color: #2d1e16 !important;
+    text-shadow: none !important;
+}
+
+body.light-theme .slide-info,
+body.light-theme .slide-info-1 {
+    color: #5a4030 !important;
+}
+
+/* Asegurarse que los controles también se adapten */
+body.light-theme .slider-control {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid rgba(201, 95, 32, 0.2) !important;
+}
+
+body.light-theme .slider-control::before {
+    border-color: #2d1e16 !important;
+}
+
+/* ---- INFO BLOCKS SECTION CORRECTION ---- */
+body.light-theme .info-blocks {
+    background-color: #ffffff !important;
+}
+
+body.light-theme .security-block-container {
+    background-color: transparent !important;
+}
+
+body.light-theme .info-block {
+    background-color: rgba(245, 240, 232, 0.8) !important;
+    border: 1px solid rgba(201, 95, 32, 0.1) !important;
+    box-shadow: 0 4px 12px rgba(201, 95, 32, 0.1) !important;
+}
+
+body.light-theme .info-block:hover {
+    background-color: rgba(245, 240, 232, 0.9) !important;
+    box-shadow: 0 8px 20px rgba(201, 95, 32, 0.15) !important;
+}

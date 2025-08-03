@@ -1,0 +1,334 @@
+/* -----------------------------------
+--------------- HERO -----------------
+----------------------------------- */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #111518 0%, #181a1c 100%);
+    border-bottom: 1px solid rgba(201, 95, 32, 0.15); /* Cambiado a naranja oscuro */
+    overflow: hidden;
+    position: relative;
+}
+
+/* Efecto sutil de partículas en el fondo */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.hero-container {
+    padding: 2rem 0;
+    display: flex;
+    align-items: flex-start; /* Cambiado a flex-start para alineación izquierda */
+    justify-content: flex-start;
+    max-width: var(--container-max-width);
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Contenido hero - Posicionado en esquina inferior izquierda y con estilo minimalista */
+.hero-content {
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    min-height: 480px;
+    width: 100%;
+    gap: 1.5rem;
+    align-items: flex-start; /* Alineación izquierda */
+    justify-content: flex-end; /* Alineación inferior */
+    padding: 2.5rem; /* Padding reducido para efecto minimalista */
+    text-align: left; /* Texto alineado a la izquierda */
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.1) 0%, 
+        rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("../../images/hero-aux-1.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto hover sutil */
+.hero-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Borde brillante que se anima */
+.hero-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.hero-content:hover::after {
+    opacity: 1;
+}
+
+/* Título hero */
+.hero-title {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    max-width: 600px; /* Limitando el ancho para mejorar legibilidad */
+    margin: 0; /* Eliminado el margen automático para mantener alineación izquierda */
+}
+
+/* Subtítulo hero */
+.hero-subtitle {
+    color: #ccc;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 500px; /* Limitando el ancho para mejorar legibilidad */
+    margin: 0; /* Eliminado el margen automático para mantener alineación izquierda */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor para el texto y botón con posicionamiento relativo */
+.flex {
+    position: relative;
+    z-index: 5; /* Asegura que esté por encima del gradiente */
+}
+
+/* Botón Shop Now - Ahora usa las variables actualizadas */
+.btn-hero-shop {
+    display: flex;
+    min-width: 160px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    height: 2.75rem;
+    padding: 0 1.5rem;
+    background-color: var(--color-accent);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.015em;
+    border: none;
+    box-shadow: 0 4px 10px rgba(186, 72, 32, 0.25); /* Sombra con tinte naranja */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+    align-self: flex-start; /* Alinea el botón a la izquierda */
+}
+
+/* Efecto hover del botón */
+.btn-hero-shop:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(186, 72, 32, 0.4); /* Sombra más pronunciada */
+}
+
+/* Efecto de brillo al hacer hover */
+.btn-hero-shop::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.7s ease;
+    z-index: -1;
+}
+
+.btn-hero-shop:hover::before {
+    left: 100%;
+}
+
+/* Logo en esquina inferior derecha del hero */
+.hero-logo {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    z-index: 2;
+    width: 140px;
+    height: 140px;
+    overflow: visible;
+}
+
+.hero-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.hero-content:hover .hero-logo img {
+    transform: scale(1.05);
+}
+
+/* Asegurar posición relativa para .hero-content si no la tiene */
+.hero-content {
+    position: relative;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    min-height: 480px;
+    width: 100%;
+    gap: 1.5rem;
+    align-items: flex-start; /* Alineación izquierda */
+    justify-content: flex-end; /* Alineación inferior */
+    padding: 2.5rem; /* Padding reducido para efecto minimalista */
+    text-align: left; /* Texto alineado a la izquierda */
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.1) 0%, 
+        rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("../../images/hero-aux-1.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Mejoras responsive para el logo */
+@media (max-width: 992px) {
+    .hero-logo {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-logo {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-logo {
+        width: 80px;
+        height: 80px;
+        bottom: -5px;
+        right: -5px;
+    }
+}
+
+/* Aseguramos que funcione bien en diferentes tamaños */
+@media (max-width: 768px) {
+    .hero-content {
+        min-height: 400px;
+        padding: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        min-height: 350px;
+        padding: 1.5rem;
+    }
+    
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .btn-hero-shop {
+        min-width: 160px;
+        height: 2.75rem;
+    }
+}
+
+/* Logo flotante minimalista que aparece cuando el hero no es visible */
+.floating-logo {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    cursor: pointer;
+    filter: drop-shadow(0 4px 8px rgba(192, 58, 0, 0.35)); /* Sombra más cálida */
+}
+
+.floating-logo.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    animation: subtle-pulse 3s infinite alternate;
+}
+
+.floating-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.floating-logo:hover img {
+    transform: scale(1.1);
+}
+
+/* Efecto de pulsación suave */
+@keyframes subtle-pulse {
+    0% { filter: drop-shadow(0 4px 8px rgba(192, 58, 0, 0.25)); }
+    50% { filter: drop-shadow(0 4px 12px rgba(215, 85, 0, 0.45)); }
+    100% { filter: drop-shadow(0 4px 8px rgba(192, 58, 0, 0.25)); }
+}
+
+/* Mejoras responsive */
+@media (max-width: 768px) {
+    .floating-logo {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 576px) {
+    .floating-logo {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+        left: 15px;
+    }
+}

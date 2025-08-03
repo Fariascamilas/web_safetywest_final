@@ -1,0 +1,481 @@
+/* -----------------------------------
+--------------- F&F -----------------
+----------------------------------- */
+
+/* Sección Empresa Info */
+.empresa-info {
+    position: relative;
+    padding: 72px 0 2rem; /* Aumentado el padding-top para dar más espacio después del logo */
+    margin-top: 4rem; /* Aumentado el margin-top para dar más separación de la sección anterior */
+    margin-bottom: 60px;
+    background: linear-gradient(135deg, #111518 0%, #28c22f 50%, #111518 100%);
+    overflow: visible; /* Cambiado de 'hidden' a 'visible' para que el logo no se corte */
+}
+
+/* Efecto sutil de partículas en el fondo para dar profundidad */
+.empresa-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+/* Corrección para el espacio del logo en tema claro */
+.light-theme .empresa-info::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff;
+    z-index: -1;
+}
+
+/* Logo posicionado sobre la sección con efectos mejorados */
+.empresa-info-logo-top {
+    position: absolute;
+    top: -50px; /* Ajustado para que quede más arriba */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 120px;
+    text-align: center;
+    /* Aura alrededor del logo */
+    filter: drop-shadow(0 0 10px rgba(40, 194, 47, 0.5)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+    animation: logoGlow 3s infinite alternate ease-in-out;
+}
+
+/* Preservar la transparencia del logo */
+.light-theme .empresa-info-logo-top {
+    position: relative;
+    z-index: 10;
+}
+
+/* Contenedor para asegurar que el logo se muestre completamente */
+.empresa-info::after {
+    content: '';
+    position: absolute;
+    top: -60px; /* Espacio reservado para el logo */
+    left: 0;
+    width: 100%;
+    height: 60px; /* Altura suficiente para el logo */
+    z-index: 5;
+    pointer-events: none; /* Para que no interfiera con interacciones */
+}
+
+/* Animación del resplandor del logo */
+@keyframes logoGlow {
+    0% {
+        filter: drop-shadow(0 0 8px rgba(40, 194, 47, 0.5)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+    }
+    100% {
+        filter: drop-shadow(0 0 15px rgba(40, 194, 47, 0.7)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.4));
+    }
+}
+
+.empresa-info-logo-top::after {
+    content: '';
+    position: absolute;
+    width: 140%;
+    height: 140%;
+    top: -20%;
+    left: -20%;
+    background: radial-gradient(circle, rgba(40, 194, 47, 0.15) 0%, transparent 70%);
+    z-index: -1;
+}
+
+.empresa-info-logo-top img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.empresa-info-logo-top:hover img {
+    transform: scale(1.05);
+}
+
+/* Contenedor principal de la sección */
+.empresa-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 20px 2rem 5px; /* Aumentado el padding-top */
+    max-width: 1140px;
+    margin: 20px auto 0; /* Ajustado el margen superior */
+    z-index: 2;
+}
+
+/* Fila del encabezado - más compacta */
+.empresa-header-row {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+/* Fila de bloques (cards) - grid más eficiente */
+.empresa-blocks-row {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    width: 100%;
+    justify-items: center;
+}
+
+/* Bloques individuales - más pequeños y minimalistas */
+.empresa-block {
+    position: relative;
+    background: linear-gradient(135deg, #43a047, #66bb6a);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    overflow: hidden;
+    min-height: auto;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.empresa-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Efecto de borde brillante */
+.empresa-block::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    pointer-events: none;
+}
+
+/* Contenido interno de cada bloque - más compacto */
+.empresa-block-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    height: 100%;
+    align-items: center;
+}
+
+/* Títulos y descripciones dentro de los bloques - tamaños ajustados */
+.empresa-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.25rem;
+    text-align: center;
+}
+
+.empresa-desc {
+    font-size: 0.95rem;
+    color: #e0f2f1;
+    margin-bottom: 0.25rem;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Encabezado de cada bloque - más pequeño */
+.empresa-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+/* Divisor horizontal en los bloques - más sutil */
+.empresa-divider {
+    width: 60px;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 0.25rem auto 0.5rem;
+}
+
+/* Texto adicional del bloque - más compacto */
+.empresa-block-text {
+    padding-top: 0;
+    font-size: 0.95rem;
+    color: #f5f5f5;
+}
+
+/* Botón global de CTA - ajustado */
+.empresa-cta {
+    grid-column: 1/-1;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.empresa-button {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: #fff;
+    color: #43a047;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.empresa-button:hover {
+    background-color: #f0f0f0;
+    color: #388e3c;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Encabezado principal de la sección - más compacto */
+.empresa-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 15px; /* Añadido padding superior para separar del logo */
+}
+
+/* Ajuste para logos en línea dentro del encabezado */
+.inline-logo {
+    width: 80px;
+    height: auto;
+    margin-right: 0.5rem;
+    opacity: 0.8;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.inline-logo:hover {
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+
+/* Título general de la sección Empresa Info - más minimalista */
+.empresa-info-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    margin-top: 0.75rem; /* Añadido margen superior para separar del logo */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+/* Descripción general de la sección - más concisa */
+.empresa-info-desc {
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #fff;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Imagen destacada de la empresa - ajustada */
+.empresa-block-img {
+    width: 100%;
+    max-width: 380px;
+    margin: 1.5rem auto;
+    display: block;
+    object-fit: cover;
+}
+
+.empresa-img {
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.empresa-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajustes responsivos específicos para esta sección */
+@media (max-width: 768px) {
+    .empresa-blocks-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .empresa-info-title {
+        font-size: 1.75rem;
+    }
+    
+    .empresa-block {
+        padding: 1.25rem;
+        min-height: auto;
+    }
+    
+    .empresa-title {
+        font-size: 1.2rem;
+    }
+    
+    /* Ocultar imagen en dispositivos móviles */
+    .empresa-block-img {
+        display: none;
+    }
+    
+    /* Reducir espacio vertical en el encabezado */
+    .empresa-header {
+        margin-bottom: 1rem;
+        gap: 0.5rem;
+    }
+    
+    .empresa-info-desc {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    /* Ajustar el logo superior */
+    .empresa-info-logo-top {
+        width: 100px;
+    }
+    
+    /* Reducir el padding de la sección para que ocupe menos espacio */
+    .empresa-info {
+        padding: 60px 0 1.5rem;
+        margin-top: 3rem;
+        margin-bottom: 40px;
+    }
+    
+    .empresa-container {
+        padding: 15px 1rem 5px;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .empresa-blocks-row {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .empresa-block {
+        padding: 1rem;
+        min-height: 0;
+        /* Limitar altura máxima para bloques más compactos */
+        max-height: 180px;
+        overflow-y: auto;
+    }
+    
+    .empresa-info-title {
+        font-size: 1.5rem;
+        padding-bottom: 0.25rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .empresa-info-desc {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Hacer más compacto el CTA */
+    .empresa-cta {
+        margin-top: 1rem;
+    }
+    
+    .empresa-button {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Reducir aún más el espacio vertical */
+    .empresa-info {
+        padding: 50px 0 1rem;
+        margin-top: 2.5rem;
+        margin-bottom: 30px;
+    }
+    
+    .empresa-container {
+        padding: 10px 0.75rem 5px;
+    }
+    
+    /* Ajustes adicionales para una vista más compacta */
+    .empresa-block-content {
+        gap: 0.5rem;
+    }
+    
+    .empresa-title {
+        font-size: 1.1rem;
+        margin-bottom: 0;
+    }
+    
+    .empresa-desc {
+        font-size: 0.85rem;
+        margin-bottom: 0;
+    }
+    
+    .empresa-divider {
+        margin: 0.15rem auto 0.25rem;
+    }
+    
+    .empresa-block-text {
+        font-size: 0.85rem;
+    }
+    
+    /* Hacer el logo más pequeño */
+    .empresa-info-logo-top {
+        width: 90px;
+        top: -45px;
+    }
+}
+
+/* Optimizaciones adicionales para pantallas muy pequeñas */
+@media (max-width: 400px) {
+    .empresa-block {
+        padding: 0.75rem;
+        max-height: 150px;
+    }
+    
+    .empresa-info-title {
+        font-size: 1.3rem;
+    }
+    
+    .empresa-title {
+        font-size: 1rem;
+    }
+    
+    .empresa-desc, .empresa-block-text {
+        font-size: 0.8rem;
+    }
+    
+    .empresa-info {
+        padding: 45px 0 0.75rem;
+    }
+    
+    .empresa-button {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.85rem;
+    }
+    
+    /* Logo aún más pequeño */
+    .empresa-info-logo-top {
+        width: 80px;
+        top: -40px;
+    }
+}

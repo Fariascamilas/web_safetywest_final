@@ -1,0 +1,151 @@
+/* -----------------------------------
+------------ RESPONSIVE -------------
+----------------------------------- */
+
+/* Media queries para diferentes tamaños de pantalla */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    /* Header */
+    .header {
+        padding: 0.5rem 1rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    /* Hero */
+    .hero {
+        padding: 1rem;
+    }
+    
+    .hero-container {
+        padding: 1rem 0;
+    }
+    
+    .hero-content {
+        min-height: 350px;
+        padding: 1.5rem;
+    }
+    
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    /* Empresa info */
+    .empresa-container {
+        padding: 5px 1rem;
+    }
+    
+    .empresa-info-title {
+        font-size: 1.75rem;
+    }
+    
+    .empresa-block-img {
+        width: 100%;
+    }
+    
+    /* Contacto */
+    .contacto {
+        padding: 40px 1rem;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    /* Header */
+    .header {
+        padding: 0.5rem 1.25rem;
+    }
+    
+    /* Hero */
+    .hero {
+        padding: 1.5rem;
+    }
+    
+    .hero-container {
+        padding: 1.5rem 0;
+    }
+    
+    .hero-content {
+        min-height: 400px;
+        padding: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    /* Empresa info */
+    .empresa-container {
+        padding: 5px 1.5rem;
+    }
+    
+    .empresa-block-img {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    /* Header */
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    /* Hero */
+    .hero {
+        padding: 2rem;
+    }
+    
+    .hero-container {
+        max-width: 90%;
+    }
+    
+    /* Info Security */
+    .info-security {
+        padding: 1.25rem 5rem;
+    }
+    
+    /* Empresa info */
+    .empresa-blocks-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    /* Hero */
+    .hero-container {
+        max-width: 90%;
+    }
+    
+    /* Info Security */
+    .info-security {
+        padding: 1.25rem 7rem;
+    }
+    
+    /* Empresa info */
+    .empresa-container {
+        max-width: 90%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    /* Contenedores */
+    .hero-container,
+    .about-container,
+    .info-container,
+    .security-block-container,
+    .questions,
+    .contacto {
+        max-width: 1140px;
+    }
+    
+    .empresa-container {
+        max-width: 1140px;
+    }
+}

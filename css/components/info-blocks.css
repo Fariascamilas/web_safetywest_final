@@ -1,0 +1,310 @@
+/* -----------------------------------
+--------------- BLOCKS ---------------
+----------------------------------- */
+
+/* Definición del fondo base */
+.info-blocks {
+    background-color: var(--color-primary); /* Usar variable en lugar de color directo */
+    padding: 3rem 0;
+    position: relative;
+}
+
+/* Efecto de partículas en el fondo */
+.info-blocks::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.2;
+    z-index: 1;
+}
+
+.security-block-container {
+    padding: 1rem;
+    display: grid;
+    max-width: var(--container-max-width);
+    width: 100%;
+    margin: 0 auto; /* Añadido para centrar el contenedor */
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    position: relative;
+    z-index: 2;
+}
+
+.info-block {
+    padding: 1.75rem 1.5rem;
+    color: #f3f4f6;
+    background-color: rgba(26, 28, 32, 0.7);
+    border: 1px solid rgba(42, 45, 48, 0.8);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    min-height: 230px;
+}
+
+/* Efecto hover mejorado */
+.info-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    background-color: rgba(30, 33, 38, 0.8);
+}
+
+/* Borde luminoso en hover */
+.info-block::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0);
+    border-radius: var(--border-radius);
+    transition: box-shadow 0.3s ease;
+    pointer-events: none;
+}
+
+.info-block:hover::after {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Ondas de fondo que aparecen en hover */
+.info-block::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.info-block:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.info-logo {
+    width: 3rem;
+    height: 3rem;
+    padding: 0.5rem;
+    fill: #e0e0e0;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, fill 0.3s ease;
+    position: relative;
+    z-index: 1;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-block:hover .info-logo {
+    transform: scale(1.1) translateY(-2px);
+    fill: #ffffff;
+}
+
+/* Círculo detrás del icono que aparece en hover */
+.info-logo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.info-block:hover .info-logo::after {
+    opacity: 1;
+}
+
+.info-block-title {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #f0f0f0;
+    text-align: center;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.info-block:hover .info-block-title {
+    color: #ffffff;
+}
+
+.info-block-text {
+    font-size: 0.95rem;
+    color: #9cacba;
+    text-align: center;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 1;
+    margin-top: 0.5rem;
+}
+
+.info-block:hover .info-block-text {
+    color: #bfd1e5;
+}
+
+/* Ajustes responsive */
+@media (max-width: 1200px) {
+    .security-block-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .info-blocks {
+        padding: 2.5rem 1rem;
+    }
+    
+    .security-block-container {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1rem;
+    }
+    
+    .info-block {
+        padding: 1.5rem 1rem;
+        min-height: 210px;
+    }
+    
+    .info-logo {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    .info-block-title {
+        font-size: 1.1rem;
+    }
+    
+    .info-block-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .info-blocks {
+        padding: 2rem 1rem;
+    }
+    
+    .security-block-container {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0.75rem;
+    }
+    
+    .info-block {
+        padding: 1.25rem 0.75rem;
+        min-height: 190px;
+    }
+    
+    .info-logo {
+        width: 2.25rem;
+        height: 2.25rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .info-block-title {
+        font-size: 1rem;
+        margin: 0.25rem 0;
+    }
+    
+    .info-block-text {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .security-block-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .info-block {
+        min-height: 180px;
+    }
+}
+
+@media (max-width: 400px) {
+    .security-block-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .info-block {
+        padding: 1rem 0.5rem;
+        min-height: 170px;
+    }
+    
+    .info-logo {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+/* Añadir reglas para modo claro - versión minimalista */
+body.light-theme .info-blocks {
+    padding-bottom: 60px;
+    margin-bottom: -60px;
+    background-color: #ffffff !important;
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid rgba(201, 95, 32, 0.05);
+}
+
+body.light-theme .security-block-container {
+    background-color: transparent !important;
+}
+
+body.light-theme .info-block {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid rgba(201, 95, 32, 0.08) !important;
+    box-shadow: 0 2px 8px rgba(201, 95, 32, 0.05) !important;
+}
+
+body.light-theme .info-block:hover {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 4px 12px rgba(201, 95, 32, 0.08) !important;
+}
+
+/* Mantener colores oscuros en hover para el tema claro */
+body.light-theme .info-block:hover .info-block-title {
+    color: #2d1e16 !important; /* Color oscuro para títulos */
+}
+
+body.light-theme .info-block:hover .info-block-text {
+    color: #5a4030 !important; /* Color oscuro para textos */
+}
+
+body.light-theme .info-block:hover .info-logo {
+    fill: #2d1e16 !important; /* Color oscuro para iconos */
+}
+
+/* Modificar los efectos de hover para mantener estética coherente */
+body.light-theme .info-block::before,
+body.light-theme .info-block::after,
+body.light-theme .info-logo::after {
+    background: radial-gradient(circle, rgba(201, 95, 32, 0.05) 0%, transparent 70%) !important;
+}

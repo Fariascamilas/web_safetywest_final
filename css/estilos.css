@@ -1,0 +1,7 @@
+/* 
+  Este archivo ahora solo importa el archivo principal de estilos
+  que a su vez importa todos los demás componentes.
+  Esto se hace para mantener compatibilidad con el HTML existente.
+*/
+
+@import 'main.css';

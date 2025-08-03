@@ -1,0 +1,455 @@
+/* -----------------------------------
+--------------- HEADER ---------------
+----------------------------------- */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(201, 95, 32, 0.1); /* Cambiado de azul a naranja oscuro */
+    background-color: rgba(17, 21, 24, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0.5rem 1.5rem;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                background-color 0.3s ease,
+                border-bottom 0.3s ease;
+    height: var(--header-height);
+}
+
+.header--hidden {
+    transform: translateY(-100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+    box-shadow: none;
+}
+
+.header--scrolled {
+    background-color: rgba(13, 17, 23, 0.98);
+    border-bottom: 1px solid rgba(201, 95, 32, 0.15); /* Más visible cuando hay scroll */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-text-primary);
+    position: relative;
+}
+
+/* Efecto de resplandor sutil para el logo */
+.logo {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.logo:hover::after {
+    opacity: 1;
+}
+
+.logo svg {
+    display: block;
+    margin: auto;
+    line-height: 1;
+    transition: filter 0.3s ease;
+}
+
+.logo:hover svg {
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+}
+
+.site-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--color-text-primary);
+    margin-left: 0.25rem;
+    transition: color 0.3s ease;
+    letter-spacing: 0.2px;
+}
+
+.header-top:hover .site-title {
+    color: #ffffff;
+}
+
+.header-nav {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    gap: 1.5rem;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Mejorado el estilo de los links de navegación */
+.nav-item {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+    padding: 0.5rem 0.25rem;
+    position: relative;
+}
+
+.nav-item:hover {
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* Línea animada bajo los items del menú - Color actualizado */
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent); /* Usa el nuevo color de acento */
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+/* Item activo */
+.nav-item.active {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.nav-item.active::after {
+    width: 100%;
+}
+
+.header-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+/* Botones con nuevos colores */
+.btn-signin {
+    display: flex;
+    min-width: 84px;
+    max-width: 480px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    height: 2.25rem;
+    padding: 0 1rem;
+    background-color: rgba(166, 62, 32, 0.8); /* Rojo oscuro */
+    color: var(--color-text-primary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 1px solid rgba(201, 95, 32, 0.15);
+    transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-signin:hover {
+    background-color: rgba(186, 72, 32, 0.9); /* Rojo más brillante al hover */
+    transform: translateY(-1px);
+    border-color: rgba(201, 95, 32, 0.25);
+}
+
+.btn-signin:active {
+    transform: translateY(1px);
+}
+
+.btn-search {
+    display: flex;
+    max-width: 480px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    height: 2.25rem;
+    padding: 0 0.75rem;
+    background-color: rgba(166, 62, 32, 0.8); /* Rojo oscuro */
+    color: #e8eaed;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 1px solid rgba(201, 95, 32, 0.15);
+    transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-search:hover {
+    background-color: rgba(186, 72, 32, 0.9); /* Rojo más brillante al hover */
+    transform: translateY(-1px);
+    border-color: rgba(201, 95, 32, 0.25);
+}
+
+.btn-search:active {
+    transform: translateY(1px);
+}
+
+.btn-search svg {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.btn-search:hover svg {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* Estilos para el botón de cambio de tema */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.btn-theme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(166, 62, 32, 0.8);
+    border: 1px solid rgba(201, 95, 32, 0.15);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-theme:hover {
+    background-color: rgba(186, 72, 32, 0.9);
+    transform: scale(1.05);
+}
+
+.theme-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Control de visibilidad de los iconos de tema */
+.theme-icon-light {
+    display: none;
+}
+
+body.light-theme .theme-icon-dark {
+    display: none;
+}
+
+body.light-theme .theme-icon-light {
+    display: block;
+}
+
+/* Estilos para el modo claro */
+.light-theme {
+    --color-primary: #f5f0e8;
+    --color-primary-light: #ffffff;
+    --color-text-primary: #2d1e16;
+    --color-text-secondary: #5a4030;
+    --color-text-muted: #8c7262;
+}
+
+/* Tema claro para el header - más minimalista */
+.light-theme .header {
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(201, 95, 32, 0.08);
+    box-shadow: 0 1px 3px rgba(201, 95, 32, 0.03);
+}
+
+.light-theme .header--scrolled {
+    background-color: #ffffff;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(201, 95, 32, 0.05);
+}
+
+.light-theme .site-title,
+.light-theme .nav-item {
+    color: var(--color-text-primary);
+}
+
+.light-theme .logo svg {
+    fill: var(--color-text-primary);
+}
+
+/* Interruptor de tema */
+.theme-toggle {
+    margin-right: 0.75rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid rgba(201, 95, 32, 0.15);
+    overflow: hidden;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(201, 95, 32, 0.1);
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: #e8eaed;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.light-theme .theme-toggle svg.moon-icon {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.theme-toggle svg.sun-icon {
+    position: absolute;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.light-theme .theme-toggle svg.sun-icon {
+    opacity: 1;
+    transform: translateY(0);
+    fill: var(--color-text-primary);
+}
+
+.light-theme .theme-toggle {
+    border-color: rgba(201, 95, 32, 0.15);
+}
+
+/* Ajustar la barra de navegación para incluir el toggle */
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+/* Mejoras responsive */
+@media (max-width: 992px) {
+    .header {
+        padding: 0.5rem 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .header-actions {
+        gap: 0.5rem;
+    }
+    
+    .btn-signin {
+        min-width: 0;
+        padding: 0 0.75rem;
+    }
+    
+    /* Reducir tamaño del logo y título */
+    .logo {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .site-title {
+        font-size: 1rem;
+        max-width: 95px; /* Limitar ancho del título */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    /* Mejorar disposición de elementos */
+    .header {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    /* Reducir tamaño de botones para evitar superposición */
+    .btn-search, .btn-signin, .btn-theme {
+        height: 2.1rem;
+    }
+    
+    .btn-search svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .theme-toggle {
+        margin-left: 5px;
+    }
+}
+
+/* Ajustes para dispositivos muy pequeños */
+@media (max-width: 400px) {
+    .site-title {
+        font-size: 0.9rem;
+        max-width: 85px;
+    }
+    
+    .logo {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .header-actions {
+        gap: 0.35rem;
+    }
+    
+    .btn-search, .btn-signin, .btn-theme {
+        height: 2rem;
+        padding: 0 0.6rem;
+    }
+    
+    .btn-search svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .theme-toggle {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .theme-icon {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .header {
+        padding: 0.4rem 0.6rem;
+    }
+}

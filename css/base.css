@@ -1,0 +1,60 @@
+:root {
+    /* Variables de colores */
+    --color-bg-primary: #111518;
+    --color-bg-secondary: #1a1c1f;
+    --color-text-primary: #f2f2f2;
+    --color-text-secondary: #ccc;
+    --color-accent: #007BFF;
+    --color-accent-hover: #005bb5;
+    --color-border: rgba(255, 255, 255, 0.1);
+    
+    /* Variables de tamaños */
+    --container-max-width: 960px;
+    --header-height: 60px;
+    --border-radius: 0.75rem;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+/* -----------------------------------
+--------------- BODY -----------------
+----------------------------------- */
+
+.body {   
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: var(--color-bg-primary);
+    overflow-x: hidden;
+    font-family: 'Public Sans', 'Noto Sans', sans-serif;
+}
+
+/* Estilos personalizados para el scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-bg-primary);
+}
+::-webkit-scrollbar-thumb {
+    background-color: #282c34;
+    border-radius: 4px;
+}
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #282c34 var(--color-bg-primary);
+}
+
+/* Clase de utilidad para líneas separadoras */
+.line-m1 {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 1.5rem auto;
+    width: 70%;
+}

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <title>Safety West</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+        <link
+            rel="stylesheet"
+            as="style"
+            onload="this.rel='stylesheet'"
+            href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"/>
+        <link rel="shortcut icon" href="./images/Safety.png" type="image/x-icon" />
+        <link rel="stylesheet" href="./css/normalize.css">
+        <link rel="stylesheet" href="./css/estilos.css">
+        
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    </head>
+
+    <body class="relative flex size-full min-h-screen flex-col bg-[#111518] dark group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+
+        <div class="layout-container flex h-full grow flex-col">
+            
+            <header class="header">
+                <div class="header-top">
+                    <div class="logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 -960 960 960" width="25px" fill="#e8eaed"><path d="M480-96q-135-33-223.5-153T168-515v-229l312-120 312 120v229q0 146-88.5 266T480-96Zm0-75q97-30 161.5-115.5T717-480H480v-307l-240 92v180q0 9 1 17.5t2 17.5h237v309Z"/></svg>
+                    </div>
+                    <h2 class="site-title">Safety West</h2>
+                </div>
+                <nav class="header-nav">
+                    <div class="nav-links">
+                        <a class="nav-item" href="#inicio">Inicio</a>
+                        <a class="nav-item" href="#tienda">Tienda</a>
+                        <a class="nav-item" href="#informacion">Información</a>
+                        <a class="nav-item" href="#fyf">Sobre F&F</a>
+                        <a class="nav-item" href="#contacto">Contacto</a>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-signin" onclick="window.location.href='https://www.safety-west.com.ar/'">
+                            <span class="btn-text">Comprar</span>
+                        </button>
+                        <button class="btn-search" onclick="window.location.href='https://www.safety-west.com.ar/'">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e8eaed">
+                                <path d="M284.53-80.67q-30.86 0-52.7-21.97Q210-124.62 210-155.47q0-30.86 21.98-52.7Q253.95-230 284.81-230t52.69 21.98q21.83 21.97 21.83 52.83t-21.97 52.69q-21.98 21.83-52.83 21.83Zm400 0q-30.86 0-52.7-21.97Q610-124.62 610-155.47q0-30.86 21.98-52.7Q653.95-230 684.81-230t52.69 21.98q21.83 21.97 21.83 52.83t-21.97 52.69q-21.98 21.83-52.83 21.83ZM238.67-734 344-515.33h285.33l120-218.67H238.67ZM206-800.67h589.38q22.98 0 34.97 20.84 11.98 20.83.32 41.83L693.33-490.67q-11 19.34-28.87 30.67-17.87 11.33-39.13 11.33H324l-52 96h487.33V-286H278q-43 0-63-31.83-20-31.84-.33-68.17l60.66-111.33-149.33-316H47.33V-880h121.34L206-800.67Zm138 285.34h285.33H344Z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="theme-toggle">
+                        <button id="theme-toggle" class="btn-theme" aria-label="Cambiar tema">
+                            <svg class="theme-icon theme-icon-dark" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#e8eaed">
+                                <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/>
+                            </svg>
+                            <svg class="theme-icon theme-icon-light" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#e8eaed">
+                                <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </nav>
+            </header>
+
+            
+            <main class="main">
+
+                <section id="inicio" class="hero">
+                    <div class="hero-container">
+                        <div class="hero-content">
+                            <div class="flex flex-col gap-2 text-left">
+                                <h1 class="hero-title">Protege lo que más importa</h1>
+                                <h2 class="hero-subtitle">Equipamiento de alta calidad para la seguridad total: un compromiso de confianza que protege a tu equipo y garantiza un futuro más seguro.</h2>
+                            </div>
+                            <button class="btn-hero-shop" onclick="window.location.href='https://www.safety-west.com.ar/'">
+                                <span class="truncate">Comprar ahora</span>
+                            </button>
+                            
+                            <!-- Logo Safety en esquina inferior derecha -->
+                            <div class="hero-logo">
+                                <img src="./images/Safety.png" alt="Safety West Logo">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="tienda" class="about">
+                    <div class="about-container">
+                        <div class="about-content">
+                            <div class="products-grid">
+                                <div class="product-card">
+                                    <div class="product-img" style='background-image: url("https://cdn.usegalileo.ai/sdxl10/fcfb2ce1-1411-4c6b-9f43-bf762c0310cc.png");'></div>
+                                    <div>
+                                        <p class="about-text-title">3M Hard Hat</p>
+                                        <p class="about-text-desc">$15.00</p>
+                                    </div>
+                                </div>
+                                <div class="product-card">
+                                    <div class="product-img" style='background-image: url("https://cdn.usegalileo.ai/sdxl10/a54dd456-4a81-4c53-adea-ed481fc5120b.png");'></div>
+                                    <div>
+                                        <p class="about-text-title">Ear Plugs</p>
+                                        <p class="about-text-desc">$3.50</p>
+                                    </div>
+                                </div>
+                                <div class="product-card">
+                                    <div class="product-img" style='background-image: url("https://cdn.usegalileo.ai/sdxl10/1b7b9858-3d57-4b73-b5ad-02505db6a4ae.png");'></div>
+                                    <div>
+                                        <p class="about-text-title">Safety Glasses</p>
+                                        <p class="about-text-desc">$5.00</p>
+                                    </div>
+                                </div>
+                                <div class="product-card">
+                                    <div class="product-img" style='background-image: url("https://cdn.usegalileo.ai/sdxl10/78b9f3aa-b5bc-4b91-a7c1-abcaec3f464f.png");'></div>
+                                    <div>
+                                        <p class="about-text-title">Gloves</p>
+                                        <p class="about-text-desc">$10.00</p>
+                                    </div>
+                                </div>
+                                <div class="product-card">
+                                    <div class="product-img" style='background-image: url("https://cdn.usegalileo.ai/sdxl10/76ccd6df-04df-47c6-a20c-d473074958ab.png");'></div>
+                                    <div>
+                                        <p class="about-text-title">Respirator</p>
+                                        <p class="about-text-desc">$20.00</p>
+                                    </div>
+                                </div>
+                                <div class="product-card">
+                                    <div class="product-img" style='background-image: url("./images/Matafuego.jpeg");'></div>
+                                    <div>
+                                        <p class="about-text-title">Extintor</p>
+                                        <p class="about-text-desc">$40.00</p>
+                                    </div>
+                                </div>
+                                <div class="product-card">
+                                    <div class="product-img" style='background-image: url("./images/Arnes.jpeg");'></div>
+                                    <div>
+                                        <p class="about-text-title">Arnes</p>
+                                        <p class="about-text-desc">$15.00</p>
+                                    </div>
+                                </div>
+                                <div class="product-card">
+                                    <div class="product-img" style='background-image: url("./images/Protectores_auditivos.jpeg");'></div>
+                                    <div>
+                                        <p class="about-text-title">Protector Auditivo</p>
+                                        <p class="about-text-desc">$20.00</p>
+                                    </div>
+                                </div>
+                                <!-- <div class="product-card">
+                                    <div class="product-img" style='background-image: url("./images/Camisa_de_trabajo_marron.jpg");'></div>
+                                    <div>
+                                        <p class="text-white text-base font-medium leading-normal">Camisa de Trabajo</p>
+                                        <p class="text-[#9cacba] text-sm font-normal leading-normal">$20.00</p>
+                                    </div>
+                                </div>
+                                <div class="product-card">
+                                    <div class="product-img" style='background-image: url("./images/Mameluco.jpg");'></div>
+                                    <div>
+                                        <p class="text-white text-base font-medium leading-normal">Mameluco</p>
+                                        <p class="text-[#9cacba] text-sm font-normal leading-normal">$20.00</p>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="informacion" class="info-security">
+                    <div class="info-container">
+                        <div class="info-slide">
+                            <div class="slide-background">
+                                <img src="./images/info-security3.jpg" alt="security">
+                            </div>
+                            <div class="info-slide-content">
+                                <h2 class="slide-title">Por qué es importante la seguridad en una empresa</h2>
+                                <p class="slide-info">La seguridad industrial protege la vida de los trabajadores y reduce riesgos de accidentes en el lugar de trabajo. Implementar medidas adecuadas fomenta un ambiente seguro, mejora la productividad y evita pérdidas económicas causadas por interrupciones o sanciones legales.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-slide">
+                            <div class="slide-background">
+                                <img src="./images/info-security2.jpg" alt="security">
+                            </div>
+                            <div class="info-slide-content">
+                                <h2 class="slide-title">Beneficios de utilizar elementos de seguridad</h2>
+                                <p class="slide-info">El uso de equipo de protección personal reduce lesiones graves, aumenta la confianza de los empleados y garantiza el cumplimiento de normativas legales. Esto no solo protege a los trabajadores, sino que mejora la reputación de la empresa y promueve un ambiente de trabajo saludable.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-slide">
+                            <div class="slide-background">
+                                <img src="./images/info-security1.jpg" alt="security">
+                            </div>
+                            <div class="info-slide-content">
+                                <h2 class="slide-title-1">Consecuencias de no implementar medidas de seguridad</h2>
+                                <p class="slide-info-1">Ignorar la seguridad puede llevar a accidentes, multas legales y pérdida de confianza de los empleados. Además, puede impactar negativamente en la imagen de la empresa y generar altos costos relacionados con la atención médica y el ausentismo laboral.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="info-blocks"> 
+                    <div class="security-block-container">
+                        <div class="info-block">
+                            <svg class="info-logo" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M280-480v-360q0-17 11.5-28.5T320-880q17 0 28.5 11.5T360-840v360h-80Zm160 0v-400q0-17 11.5-28.5T480-920q17 0 28.5 11.5T520-880v400h-80Zm160 163v-483q0-17 11.5-28.5T640-840q17 0 28.5 11.5T680-800v436l-80 47ZM280-120h267q8 0 15-3.5t13-8.5l182-182-287 167-130-173H200v120q0 33 23.5 56.5T280-120Zm0 80q-66 0-113-47t-47-113v-200h260l110 147 190-111 90-52q21-12 44.5-10.5T858-411l63 47L632-75q-17 17-39 26t-46 9H280Zm-80-360h-80v-360q0-17 11.5-28.5T160-800q17 0 28.5 11.5T200-760v360Zm0-80h400-400Zm80 360h-80 375-295Z"/></svg>
+                            <h3 class="info-block-title">Guantes de Seguridad</h3>
+                            <p class="info-block-text">Los guantes protegen las manos de cortes, quemaduras, sustancias químicas y otros riesgos laborales.</p>
+                        </div>
+                        <div class="info-block">
+                            <svg class="info-logo" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M280-80q57 0 100-34t62-90q17-50 36.5-74t64.5-56q67-48 102-119.5T680-600q0-118-81-199t-199-81q-118 0-199 81t-81 199h80q0-85 57.5-142.5T400-800q85 0 142.5 57.5T600-600q0 59-28 113.5T493-396q-48 34-76.5 65.5T371-245q-11 35-33.5 60T280-160q-32 0-56-23.5T200-240q0-26 5-51.5t16-46.5l68 54 100-176q61 5 106-36.5T540-600q0-58-41-99t-99-41q-65 0-106.5 49T262-579L97-436l60 48q-20 32-28.5 70.5T120-240q0 66 47 113t113 47Zm432-210q62-63 95-143.5T840-600q0-88-33-168.5T712-912l-58 56q51 51 78.5 117T760-600q0 72-27.5 137.5T654-346l58 56ZM265-404l-42-34 75-66 7.5 7.5q3.5 3.5 7.5 6.5l-48 86Zm135-136q-25 0-42.5-17.5T340-600q0-25 17.5-42.5T400-660q25 0 42.5 17.5T460-600q0 25-17.5 42.5T400-540Zm-132 86Zm132-146Z"/></svg>
+                            <h3 class="info-block-title">Protección Auditiva</h3>
+                            <p class="info-block-text">La protección auditiva previene daños en los oídos causados por niveles altos de ruido en el ambiente laboral.</p>
+                        </div>
+                        <div class="info-block">
+                            <svg class="info-logo" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-480Zm80 240q100 0 170-70t70-170q0-101-73.5-170.5T550-720q-48 0-93 11t-87 33l100 40q41 17 65.5 52.5T560-504q0 60-41.5 102T418-360H162q-2 24-2 54.5v65.5h400ZM176-440h240q27 0 45.5-18.5T480-504q0-19-10.5-34.5T440-562l-148-60q-42 37-71.5 84T176-440Zm384 280H160q-33 0-56.5-23.5T80-240v-90q0-98 37-183.5t100.5-149Q281-726 367-763t183-37q68 0 128 25t105 68.5Q828-663 854-605t26 125q0 66-25 124.5t-68.5 102Q743-210 684.5-185T560-160Z"/></svg>
+                            <h3 class="info-block-title">Cascos de Seguridad</h3>
+                            <p class="info-block-text">Los cascos protegen la cabeza de impactos, caídas de objetos y otros riesgos en entornos peligrosos.</p>
+                        </div>
+                        <div class="info-block">
+                            <svg class="info-logo" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"/></svg>
+                            <h3 class="info-block-title">Gafas de Seguridad</h3>
+                            <p class="info-block-text">Protegen los ojos de partículas, sustancias químicas y radiaciones peligrosas.</p>
+                        </div>
+
+                        <div class="info-block">
+                            <svg class="info-logo" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M216-580q39 0 74 14t64 41l382 365h24q17 0 28.5-11.5T800-200q0-8-1.5-17T788-235L605-418l-71-214-74 18q-38 10-69-14t-31-63v-84l-28-14-154 206q-1 1-1 1.5t-1 1.5h40Zm0 80h-46q3 7 7.5 13t10.5 11l324 295q11 11 25 16t29 5h54L299-467q-17-17-38.5-25t-44.5-8ZM566-80q-30 0-57-11t-50-31L134-417q-46-42-51.5-103T114-631l154-206q17-23 45.5-30.5T368-861l28 14q21 11 32.5 30t11.5 42v84l74-19q30-8 58 7.5t38 44.5l65 196 170 170q20 20 27.5 43t7.5 49q0 50-35 85t-85 35H566Z"/></svg>                           
+                            <h3 class="info-block-title">Calzado de Seguridad</h3>
+                            <p class="info-block-text">Ofrece protección contra impactos, perforaciones y deslizamientos en el área de trabajo.</p>
+                        </div>
+                        <div class="info-block">
+                            <svg class="info-logo" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-80v-172q-57-52-88.5-121.5T120-520q0-150 105-255t255-105q125 0 221.5 73.5T827-615l52 205q5 19-7 34.5T840-360h-80v120q0 33-23.5 56.5T680-160h-80v80h-80v-160h160v-200h108l-38-155q-23-91-98-148t-172-57q-116 0-198 81t-82 197q0 60 24.5 114t69.5 96l26 24v208h-80Zm254-360ZM364-80h80l25-240h131v-80H477l5-44q2-15 13-25.5t26-10.5h159v-80H522q-47 0-81 31t-39 77L364-80Z"/></svg> 
+                            <h3 class="info-block-title">Máscaras Respiratorias</h3>
+                            <p class="info-block-text">Filtran partículas y gases nocivos, asegurando la salud respiratoria de los trabajadores.</p>
+                        </div>
+                        <div class="info-block">
+                            <svg class="info-logo" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m540-60-80-16 32-172-144-108-52-228-88 76 32 152-80 16-40-196 178-159q23-20 54.5-16.5T413-696q32 14 66.5 20t69.5 1q35-5 64.5-23t56.5-40l50 62q-30 23-62 43t-69 31q-33 9-66.5 9.5T456-600l28 124 148-28 208 148-48 64-172-120-144 28 108 80-44 244ZM320-740q-33 0-56.5-23.5T240-820q0-33 23.5-56.5T320-900q33 0 56.5 23.5T400-820q0 33-23.5 56.5T320-740Z"/></svg>
+                            <h3 class="info-block-title">Arnés de Seguridad</h3>
+                            <p class="info-block-text">Previene caídas al trabajar en alturas, garantizando la integridad física del trabajador.</p>
+                        </div>
+                        <div class="info-block">
+                            <svg class="info-logo" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m226-640-86-84 56-58 86 86-56 56Zm214-120v-120h80v120h-80Zm296 120-58-56 86-84 56 56-84 84ZM360-80v-200L240-400v-200h480v200L600-280v200H360Zm80-80h80v-153l120-120v-87H320v87l120 120v153Zm40-180Z"/></svg>
+                            <h3 class="info-block-title">Chalecos Reflectantes</h3>
+                            <p class="info-block-text">Aumentan la visibilidad de los trabajadores en entornos con poca luz o tráfico vehicular.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Nueva sección de información de la empresa -->
+                <section id="fyf" class="empresa-info py-8">
+                    <div class="empresa-info-logo-top">
+                        <img src="./images/LogoPrincipal2.png" alt="Logo Empresa Info">
+                    </div>
+                    <div class="empresa-container">
+                        <div class="empresa-header-row">
+                            <div class="empresa-header">
+                                <h2 class="empresa-info-title">
+                                    F&F Consultores Asociados
+                                </h2>
+                                <p class="empresa-info-desc">
+                                    Impulsamos el crecimiento de tu empresa reduciendo la siniestralidad y optimizando procesos.
+                                    Prevenimos incidentes que afectan la producción y capacitamos a tu equipo para garantizar
+                                    un entorno seguro, eficiente y saludable. ¡Confía en nosotros para proteger lo más importante!
+                                </p>
+                                <div class="empresa-block-img"> 
+                                    <img src="./images/imagesFyF.jpeg" class="empresa-img" alt="Empresa">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="empresa-blocks-row">
+                            <div class="empresa-block">
+                                <div class="empresa-block-content">
+                                    <div class="empresa-block-header">
+                                        <h3 class="empresa-title">Seguridad e Higiene</h3>
+                                    </div>
+                                    <hr class="empresa-divider">
+                                    <div class="empresa-block-text">
+                                        <p class="empresa-desc">Ofrecemos soluciones que cuidan la salud laboral y protegen la integridad física.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="empresa-block">
+                                <div class="empresa-block-content">
+                                    <div class="empresa-block-header">
+                                        <h3 class="empresa-title">Control Ambiental</h3>
+                                    </div>
+                                    <hr class="empresa-divider">
+                                    <div class="empresa-block-text">
+                                        <p class="empresa-desc">Monitoreo y gestión ambiental para cumplir normativas y cuidar el entorno.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="empresa-block">
+                                <div class="empresa-block-content">
+                                    <div class="empresa-block-header">
+                                        <h3 class="empresa-title">RRHH</h3>
+                                    </div>
+                                    <hr class="empresa-divider">
+                                    <div class="empresa-block-text">
+                                        <p class="empresa-desc">Estrategias para potenciar el talento y mejorar el clima laboral.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="empresa-block">
+                                <div class="empresa-block-content">
+                                    <div class="empresa-block-header">
+                                        <h3 class="empresa-title">Seguros y ART</h3>
+                                    </div>
+                                    <hr class="empresa-divider">
+                                    <div class="empresa-block-text">
+                                        <p class="empresa-desc">Coberturas integrales para proteger a tu empresa y colaboradores.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Botón global de CTA -->
+                            <div class="empresa-cta">
+                                <a href="https://fyfconsultoresasoc.com.ar/" class="empresa-button">Saber más</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="questions">
+
+                    <h2 class="subtitle">Preguntas Frecuentes</h2>
+                    <p class="questions__paragraph">Analizamos cada caso para ofrecer soluciones técnicas y legales adaptadas a tus objetivos empresariales.</p>
+        
+                    <article class="questions__padding">
+                        <div class="questions__answer">
+                            <h3 class="questions__title">¿Por qué es esencial utilizar Equipos de Protección Personal (EPP)?
+                                <span class="questions__arrow"></span></h3>
+                            <p class="questions__show">El uso de EPP es fundamental para proteger a los trabajadores contra riesgos y accidentes laborales. Estos equipos minimizan lesiones y garantizan una mayor seguridad en los entornos de trabajo, permitiendo cumplir con las normativas vigentes.</p>
+                        </div>
+                    </article>
+    
+                    <article class="questions__padding">
+                        <div class="questions__answer">
+                            <h3 class="questions__title">¿Qué beneficios aporta el uso de nuestros productos de seguridad?
+                                <span class="questions__arrow"></span></h3>
+                            <p class="questions__show">Nuestros productos ofrecen la máxima calidad y eficacia para prevenir accidentes. Además, ayudan a optimizar la productividad y reducen significativamente los costos derivados de incidentes, creando un ambiente de trabajo más seguro y conforme a las leyes laborales.</p>
+                        </div>
+                    </article>
+    
+                    <article class="questions__padding">
+                        <div class="questions__answer">
+                            <h3 class="questions__title">¿Qué leyes y normativas se deben cumplir al utilizar EPP?
+                                <span class="questions__arrow"></span></h3>
+                            <p class="questions__show">El uso de EPP debe adherirse a normativas internacionales como OSHA, directrices de la Unión Europea y regulaciones locales. Estas leyes aseguran que los equipos sean adecuados para el entorno laboral, garantizando la protección y seguridad de los trabajadores.</p>
+                        </div>
+                    </article>
+                </section>
+
+                <section id="contacto" class="contacto">
+                    <div class="contacto__form">
+                        <h2 class="contacto__title">Envíanos tu consulta</h2>
+                        <form action="mailto:safetywest22@gmail.com" method="post" enctype="text/plain">
+                            <div class="form__group">
+                            <label for="nombre">Nombre y Apellido</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required>
+                            </div>
+                            <div class="form__group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Tu email" required>
+                            </div>
+                            <div class="form__group">
+                            <label for="asunto">Asunto</label>
+                            <input type="text" id="asunto" name="asunto" placeholder="Asunto" required>
+                            </div>
+                            <div class="form__group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" placeholder="Escribe tu consulta" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="cta contacto__submit">Enviar</button>
+                        </form>
+                        <div class="contacto__social">
+                            <a href="https://www.linkedin.com/company/fyf-consultores-asociados-arg/about/" target="_blank" class="social__link linkedin">
+                            <img src="./images/linkedin.svg" alt="LinkedIn">
+                            </a>
+                            <a href="https://www.facebook.com/share/1GpHftTinL/" target="_blank" class="social__link facebook">
+                            <img src="./images/facebook.svg" alt="Facebook">
+                            </a>
+                            <a href="https://www.instagram.com/fyfconsultoresasociados/" target="_blank" class="social__link instagram">
+                            <img src="./images/instagram.svg" alt="Instagram">
+                            </a>
+                            <a href="https://wa.me/5492325415641" target="_blank" class="social__link whatsapp">
+                            <img src="./images/whatsapp.svg" alt="WhatsApp">
+                            </a>
+                        </div>
+                    </div>
+                
+                    <div class="contacto__map">
+                        <h2 class="contacto__title">Nuestra Ubicación</h2>
+                        <div class="mapa">
+                            <iframe src="https://www.google.com/maps?q=Chacabuco+286+San+Andres+de+Giles+6720+Bs.+As.+Argentina&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="contacto__address">
+                            <p>Chacabuco 286</p>
+                            <p>San Andres de Giles (6720) Bs. As. Argentina</p>
+                            <p>Tel.: +54 (02325)-442261</p>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+            <footer class="footer">
+                <div class="footer__container container">
+                    <div class="footer__inner">
+                        <h2 class="footer__title">Safety - West</h2>
+                        <nav class="footer__nav">
+                        <ul class="footer__list">
+                            <li><a href="#inicio" class="footer__text">Inicio</a></li>
+                            <li><a href="#tienda" class="footer__text">Tienda</a></li>
+                            <li><a href="#informacion" class="footer__text">Información</a></li>
+                            <li><a href="#fyf" class="footer__text">Sobre F&F</a></li>
+                            <li><a href="#contacto" class="footer__text">Contacto</a></li>
+                        </ul>
+                        </nav>
+                        <div class="footer__social">
+                        <a href="https://www.linkedin.com/company/fyf-consultores-asociados-arg/about/" target="_blank" class="footer__icon">
+                            <img src="./images/linkedin.svg" alt="LinkedIn">
+                        </a>
+                        <a href="https://www.facebook.com/share/1GpHftTinL/" target="_blank" class="footer__icon">
+                            <img src="./images/facebook.svg" alt="Facebook">
+                        </a>
+                        <a href="https://www.instagram.com/fyfconsultoresasociados/" target="_blank" class="footer__icon">
+                            <img src="./images/instagram.svg" alt="Instagram">
+                        </a>
+                        <a href="https://wa.me/5492325415641" target="_blank" class="footer__icon">
+                            <img src="./images/whatsapp.svg" alt="WhatsApp">
+                        </a>
+                        </div>
+                    </div>
+                    <p class="footer__copy">© 2025 Safety - West. Todos los derechos reservados.</p>
+                </div>
+            </footer>
+
+        </div>
+
+        <script src="./js/info.js"></script>
+        <script src="./js/questions.js"></script>
+        <script src="./js/header-move.js"></script>
+        <script src="./js/mail.js"></script>
+        <script src="./js/products.js"></script>
+        <script src="./js/floating-logo.js"></script>
+        <script src="./js/theme-toggle.js"></script>
+
+    </body>
+
+</html>

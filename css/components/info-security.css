@@ -1,0 +1,592 @@
+/* -----------------------------------
+--------------- INFO -----------------
+----------------------------------- */
+
+.info-security {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(to bottom, #222, #111518);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de partículas de fondo para dar profundidad */
+.info-security::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.2;
+    z-index: 1;
+}
+
+.info-container {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 480px;
+    flex-direction: column;
+    max-width: var(--container-max-width);
+    flex: 1;
+    border-radius: var(--border-radius);
+    background-color: rgba(18, 20, 25, 0.4); /* Fondo más oscuro y transparente */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    z-index: 2;
+    border: 1px solid rgba(40, 44, 52, 0.2); /* Borde más oscuro */
+}
+
+.info-container:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    transform: translateY(-5px);
+}
+
+/* Borde decorativo */
+.info-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(86, 101, 179, 0.15);
+    border-radius: var(--border-radius);
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+.info-slide {
+    display: flex;
+    flex-direction: column;
+    min-height: 480px;
+    gap: 1.5rem;
+    align-items: flex-start; /* Alineado a la izquierda */
+    justify-content: flex-end;
+    padding: 0 3rem 3rem;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    color: #eaeaea;
+    transition: left 0.5s ease, opacity 0.5s ease;
+    background: linear-gradient(90deg, rgba(13, 14, 16, 0.85) 30%, rgba(13, 14, 16, 0.5) 100%); /* Fondo más oscuro */
+    z-index: 2;
+}
+
+.slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.slide-background img {
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.7) contrast(1.1);
+    transition: transform 8s ease, filter 0.5s ease;
+}
+
+/* Efecto de zoom lento en la imagen al hacer hover */
+.info-slide.active .slide-background img {
+    transform: scale(1.05);
+}
+
+/* Contenedor para el contenido del slide */
+.info-slide-content {
+    max-width: 580px; /* Limitar ancho para mejor legibilidad */
+    position: relative;
+    z-index: 3;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.6s ease 0.1s, opacity 0.6s ease 0.1s;
+    margin-bottom: 3.5rem; /* Aumentado para dar más espacio antes de los indicadores */
+}
+
+.info-slide.active .info-slide-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Títulos en los slides */
+.slide-title,
+.slide-title-1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #ffffff; /* Blanco puro para mejor legibilidad */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+    max-width: 90%;
+}
+
+/* Línea decorativa bajo el título - cambiada a barra sólida */
+.slide-title::after,
+.slide-title-1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    /* Cambiado de gradiente a color sólido, similar a questions */
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+/* Texto informativo */
+.slide-info,
+.slide-info-1 {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #f0f4ff; /* Blanco brillante con tono azulado */
+    margin-bottom: 1.5rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    max-width: 90%;
+}
+
+/* Puntos destacados con viñetas */
+.slide-info strong,
+.slide-info-1 strong {
+    color: #fff;
+    position: relative;
+    font-weight: 600;
+}
+
+/* Clases para controlar la posición de los slides */
+.info-slide.active {
+    left: 0;
+    opacity: 1;
+    z-index: 2;
+}
+
+.info-slide.prev {
+    left: -100%;
+    opacity: 0;
+    z-index: 0;
+}
+
+.info_slide.next {
+    left: 100%;
+    opacity: 0;
+    z-index: 0;
+}
+
+/* Controles de navegación del slider - mejorados y más minimalistas */
+.slider-controls {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 2rem;
+    display: flex;
+    gap: 0.75rem;
+    z-index: 10;
+}
+
+.slider-control {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(22, 24, 29, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex; /* Añadido para centrar el contenido */
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    padding: 0;
+}
+
+/* Versión mejorada para el centrado perfecto de las flechas */
+.slider-control.prev-slide::after,
+.slider-control.next-slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Reemplazar el contenido con flechas SVG para mejor centrado */
+.slider-control.prev-slide::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(45deg);
+    margin-right: -2px; /* Ajuste fino para centrado visual */
+    position: relative;
+    z-index: 2;
+}
+
+.slider-control.next-slide::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #fff;
+    border-top: 2px solid #fff;
+    transform: rotate(45deg);
+    margin-left: -2px; /* Ajuste fino para centrado visual */
+    position: relative;
+    z-index: 2;
+}
+
+/* Mejora en el posicionamiento de los indicadores de slide */
+.slide-indicators {
+    position: absolute;
+    bottom: 1.5rem; /* Posicionado al mismo nivel que los controles */
+    left: 3rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.slide-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(201, 95, 32, 0.3); /* Cambiado a naranja oscuro */
+    transition: all 0.3s ease;
+    cursor: pointer; /* Añadido para mejor UX */
+}
+
+.slide-indicator.active {
+    background-color: rgba(201, 95, 32, 0.8); /* Más visible cuando está activo */
+    width: 12px;
+    height: 12px;
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Etiqueta de seguridad mejorada - movida al lado derecho */
+.safety-label {
+    position: absolute;
+    top: 1.5rem;
+    right: -3rem; /* Cambiado de left a right */
+    background: var(--gradient-fire); /* Nuevo gradiente de fuego */
+    color: #e0e0e0; /* Gris claro, no tan blanco */
+    padding: 0.6rem 3rem 0.6rem 3rem;
+    font-size: 0.85rem;
+    font-weight: 600; /* Un poco menos pesado */
+    text-transform: uppercase;
+    transform: rotate(45deg); /* Cambiado de -45deg a 45deg para el lado derecho */
+    z-index: 5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.safety-label::before {
+    content: "⚠️"; /* Icono de advertencia */
+    font-size: 0.9rem; /* Ligeramente más pequeño */
+    opacity: 0.85; /* Menos brillante */
+}
+
+/* Botón CTA en cada slide - más oscuro y minimalista */
+.slide-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; /* Mejor centrado */
+    gap: 0.5rem;
+    padding: 0.6rem 1.25rem;
+    margin-bottom: 1rem; /* Añadido para crear más separación con los indicadores */
+    background-color: var(--color-accent); /* Nuevo color de acento */
+    color: white;
+    border-radius: 0.5rem;
+    font-weight: 500; /* Menos pesado */
+    font-size: 0.85rem; /* Más pequeño */
+    text-decoration: none;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+    cursor: pointer;
+    letter-spacing: 0.2px; /* Mejor espaciado de letras */
+    position: relative; /* Añadido para mejor control de posición */
+}
+
+.slide-cta:hover {
+    background-color: var(--color-accent-hover); /* Color hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.slide-cta::after {
+    content: '→';
+    font-size: 0.95rem;
+    transition: transform 0.3s ease;
+    display: inline-block; /* Mejor control sobre el posicionamiento */
+    margin-top: 1px; /* Ajuste fino para alineación vertical */
+}
+
+/* Definición del fondo base */
+.info-security {
+    position: relative;
+    background-color: var(--color-primary); /* Usar variable en lugar de color fijo */
+    overflow: hidden;
+    padding: 3rem 0;
+}
+
+/* Fix for light theme - Stronger selectors with !important */
+html body.light-theme .info-security {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    border-top: 1px solid rgba(201, 95, 32, 0.05);
+}
+
+html body.light-theme .info-container {
+    background-color: transparent !important;
+    box-shadow: 0 4px 16px rgba(201, 95, 32, 0.08) !important;
+    border: 1px solid rgba(201, 95, 32, 0.1) !important;
+}
+
+html body.light-theme .info-slide {
+    /* Fondo oscuro semitransparente para dar contraste al texto blanco */
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0.5) 100%) !important;
+}
+
+html body.light-theme .slide-title,
+html body.light-theme .slide-title-1 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+html body.light-theme .slide-info,
+html body.light-theme .slide-info-1 {
+    color: #f0f0f0 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+html body.light-theme .slide-background img {
+    filter: brightness(0.6) contrast(1.1) !important;
+}
+
+/* Special fix to ensure dark overlay in light mode */
+@media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
+    body.light-theme .info-slide {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0.5) 100%) !important;
+    }
+    
+    body.light-theme .slide-title,
+    body.light-theme .slide-title-1,
+    body.light-theme .slide-info,
+    body.light-theme .slide-info-1 {
+        color: #ffffff !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+    }
+}
+
+/* Mejoras responsive */
+@media (max-width: 992px) {
+    .info-security {
+        padding: 2rem 1rem;
+    }
+    
+    .info-container {
+        height: 450px;
+    }
+    
+    .info-slide {
+        min-height: 450px;
+        padding: 0 2rem 2rem;
+    }
+    
+    .slide-title,
+    .slide-title-1 {
+        font-size: 1.8rem;
+    }
+    
+    .info-slide-content {
+        margin-bottom: 3rem; /* Ajustado para pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .info-security {
+        padding: 1.5rem 1rem;
+    }
+    
+    .info-container {
+        height: 420px;
+    }
+    
+    .info_slide {
+        min-height: 420px;
+        padding: 0 1.5rem 1.5rem;
+    }
+    
+    .slide-title,
+    .slide-title-1 {
+        font-size: 1.6rem;
+    }
+    
+    .slide-info,
+    .slide-info-1 {
+        font-size: 0.95rem;
+    }
+    
+    .slider-controls {
+        bottom: 1rem;
+        right: 1.5rem;
+    }
+    
+    .slide-indicators {
+        bottom: 1rem;
+        left: 1.5rem;
+    }
+    
+    .info-slide-content {
+        margin-bottom: 2.5rem; /* Ajustado para pantallas pequeñas */
+    }
+    
+    .slide-cta {
+        margin-bottom: 0.75rem; /* Menos margen en pantallas pequeñas */
+    }
+}
+
+/* Mejoras responsive específicas para dispositivos móviles */
+@media (max-width: 900px) {
+    /* Ocultar elementos no esenciales para un diseño minimalista */
+    .safety-label {
+        display: none; /* Ocultar la etiqueta "Seguridad" */
+    }
+    
+    .slide-cta {
+        display: none; /* Ocultar el botón de "Contáctanos para prevenir" */
+    }
+    
+    .info-security {
+        padding: 2rem 0.75rem; /* Reducir el padding general */
+    }
+    
+    .info-container {
+        height: 420px; /* Reducir la altura del contenedor */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Sombra más sutil */
+    }
+    
+    .info-slide {
+        min-height: 420px;
+        padding: 0 1.5rem 1.5rem; /* Reducir el padding */
+        gap: 1rem; /* Menos espacio entre elementos */
+    }
+    
+    /* Títulos más pequeños y minimalistas */
+    .slide-title,
+    .slide-title-1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
+        max-width: 100%;
+    }
+    
+    /* Quitar línea decorativa bajo el título para mayor minimalismo */
+    .slide-title::after,
+    .slide-title-1::after {
+        display: none;
+    }
+    
+    /* Texto más compacto */
+    .slide-info,
+    .slide-info-1 {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Contenido del slide más compacto */
+    .info-slide-content {
+        margin-bottom: 1.5rem;
+        max-width: 100%;
+    }
+    
+    /* Controles de navegación más pequeños y sutiles */
+    .slider-controls {
+        bottom: 0.75rem;
+        right: 0.75rem;
+    }
+    
+    .slider-control {
+        width: 32px;
+        height: 32px;
+    }
+    
+    /* Indicadores más pequeños y minimalistas */
+    .slide-indicators {
+        bottom: 0.75rem;
+        left: 0.75rem;
+    }
+    
+    .slide-indicator {
+        width: 6px;
+        height: 6px;
+    }
+    
+    .slide-indicator.active {
+        width: 8px;
+        height: 8px;
+    }
+    
+    /* Optimizar imágenes de fondo para móviles */
+    .slide-background img {
+        object-position: center; /* Centrar imagen */
+    }
+}
+
+/* Ajustes adicionales para dispositivos muy pequeños */
+@media (max-width: 480px) {
+    .info-container {
+        height: 380px;
+    }
+    
+    .info-slide {
+        min-height: 380px;
+        padding: 0 1rem 1rem;
+    }
+    
+    .slide-title,
+    .slide-title-1 {
+        font-size: 1.3rem;
+    }
+    
+    .slide-info,
+    .slide-info-1 {
+        font-size: 0.85rem;
+    }
+    
+    /* Simplificar aún más los controles */
+    .slider-control {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .slider-control::before {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+
